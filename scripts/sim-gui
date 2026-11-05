@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# PX4 SITL with the Gazebo window, shown on the VNC desktop (localhost:5901).
+# Software rendering on a Mac VM is slow; use `sim` when you don't need to see the 3D world.
+export DISPLAY=:1 LIBGL_ALWAYS_SOFTWARE=1 QT_X11_NO_MITSHM=1
+export PX4_GZ_SIM_RENDER_ENGINE="${PX4_GZ_SIM_RENDER_ENGINE:-ogre}"
+cd "$HOME/PX4-Autopilot" && make px4_sitl "${1:-gz_x500}"

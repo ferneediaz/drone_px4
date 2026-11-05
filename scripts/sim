@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Headless PX4 SITL + Gazebo (fast). Usage: sim [target]   e.g. sim gz_x500
+cd "$HOME/PX4-Autopilot" && HEADLESS=1 make px4_sitl "${1:-gz_x500}"

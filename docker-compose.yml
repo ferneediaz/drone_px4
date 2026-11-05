@@ -1,0 +1,23 @@
+services:
+  px4:
+    build:
+      context: .
+      args:
+        PX4_VERSION: v1.16.2
+    image: px4-sitl:jammy
+    container_name: px4
+    hostname: px4
+    ports:
+      - "127.0.0.1:5901:5901"   # VNC desktop for the Gazebo GUI
+    volumes:
+      - ./code:/home/px4/code   # your MAVSDK scripts, editable from VS Code on the Mac
+      - claude-config:/home/px4/.claude   # Claude Code login, kept across rebuilds
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    shm_size: "2gb"
+    stdin_open: true
+    tty: true
+
+volumes:
+  claude-config:
+    name: px4-claude-config   # fixed name: shared by plain compose and the Dev Container

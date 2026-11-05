@@ -1,0 +1,56 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "PX4: sim (headless)",
+      "type": "shell",
+      "command": "sim ${input:target}",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "panel": "dedicated", "focus": true }
+    },
+    {
+      "label": "PX4: sim-gui (Gazebo window on VNC)",
+      "type": "shell",
+      "command": "sim-gui ${input:target}",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": { "panel": "dedicated", "focus": true }
+    },
+    {
+      "label": "MAVSDK: takeoff & land test",
+      "type": "shell",
+      "command": "python3 ${workspaceFolder}/code/takeoff_land.py",
+      "problemMatcher": [],
+      "presentation": { "panel": "dedicated" }
+    },
+    {
+      "label": "MAVSDK: run current file",
+      "type": "shell",
+      "command": "python3 ${file}",
+      "problemMatcher": [],
+      "presentation": { "panel": "dedicated" }
+    },
+    {
+      "label": "PX4: rebuild SITL",
+      "type": "shell",
+      "command": "cd ~/PX4-Autopilot && make px4_sitl",
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "PX4: clean build",
+      "type": "shell",
+      "command": "cd ~/PX4-Autopilot && make distclean && make px4_sitl",
+      "problemMatcher": ["$gcc"]
+    }
+  ],
+  "inputs": [
+    {
+      "id": "target",
+      "type": "pickString",
+      "description": "Gazebo vehicle",
+      "options": ["gz_x500", "gz_x500_depth", "gz_x500_mono_cam", "gz_rc_cessna", "gz_standard_vtol"],
+      "default": "gz_x500"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "PX4 SITL (Ubuntu 22.04)",
+
+  // Reuse the existing compose setup, plus an override that mounts this whole folder
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.devcontainer.yml"],
+  "service": "px4",
+  "workspaceFolder": "/workspaces/px4-docker",
+  "remoteUser": "px4",
+
+  // Keep the image's entrypoint running (VNC desktop + MAVLink relay to QGroundControl)
+  "overrideCommand": false,
+  "shutdownAction": "stopCompose",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cmake-tools",
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "cmake.configureOnOpen": false
+      }
+    }
+  },
+
+  "postStartCommand": "echo 'Ready. Ctrl/Cmd+Shift+P -> Tasks: Run Task -> PX4: ...  (VNC: run ./vnc.sh in a Mac terminal)'"
+}

@@ -1,0 +1,16 @@
+{
+    "cmake.sourceDirectory": "/Users/dandiaz/workspace/px4-docker/PX4-Autopilot",
+
+    // Keep the PX4 clone and its submodules out of Source Control (Mac and dev container paths)
+    "git.ignoredRepositories": [
+        "/Users/dandiaz/workspace/px4-docker/PX4-Autopilot",
+        "/workspaces/px4-docker/PX4-Autopilot"
+    ],
+    "git.repositoryScanIgnoredFolders": ["node_modules", "PX4-Autopilot"],
+    "git.detectSubmodules": false,
+
+    // Don't file-watch its ~45k files
+    "files.watcherExclude": {
+        "**/PX4-Autopilot/**": true
+    }
+}

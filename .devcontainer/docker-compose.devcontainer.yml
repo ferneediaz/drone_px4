@@ -1,0 +1,6 @@
+# Dev Container override: mount the whole px4-docker folder as the VS Code workspace.
+# Relative paths resolve from the first compose file's folder (px4-docker/).
+services:
+  px4:
+    volumes:
+      - .:/workspaces/px4-docker:cached

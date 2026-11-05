@@ -1,0 +1,12 @@
+# Upstream PX4 clone: has its own git history and submodules
+PX4-Autopilot/
+
+# VNC password copied out of the container by vnc.sh
+.vncpasswd
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
