@@ -15,6 +15,10 @@ Docker Desktop > Settings > Resources: give it at least 8 GB RAM and 4+ CPUs.
     ./stop.sh               # stop PX4 and Gazebo
     ./stop.sh --all         # also stop the container
 
+## Quick start (from a container terminal)
+    ./mac_open_apps.sh --install   # on the Mac, once: lets the container open Mac apps
+    ~/code/open_all.sh             # in the container: QGroundControl, VNC, PX4 and Gazebo
+
 ## VS Code Dev Container (recommended)
 Open ~/workspace/px4-docker in VS Code -> Cmd+Shift+P -> "Dev Containers: Reopen in Container".
 Then Cmd+Shift+P -> "Tasks: Run Task" -> PX4: sim / sim-gui / MAVSDK test.

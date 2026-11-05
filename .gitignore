@@ -4,6 +4,9 @@ PX4-Autopilot/
 # VNC password copied out of the container by vnc.sh
 .vncpasswd
 
+# SSH key that lets the container open apps on the Mac (mac_open_apps.sh --install)
+code/.mac_open/
+
 # Python
 __pycache__/
 *.pyc

@@ -52,6 +52,10 @@ RUN mkdir -p "${CLAUDE_CONFIG_DIR}" \
     && curl -fsSL https://claude.ai/install.sh | bash \
     && claude --version
 
+# SSH client: code/open_all.sh uses it to open QGroundControl and the VNC viewer on the Mac
+RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends openssh-client \
+    && sudo rm -rf /var/lib/apt/lists/*
+
 EXPOSE 5901
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 CMD ["sleep", "infinity"]
